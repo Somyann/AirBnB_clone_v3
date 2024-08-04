@@ -1,9 +1,22 @@
 #!/usr/bin/python3
-from flask import Flask, jsonify
+"""
+create Flask app; app_views
+"""
+
+from flask import  jsonify
 from models import storage
 from api.v1.views import app_views
 
-app = Flask(__name__)
+
+@app_views.route('/status')
+def api_status():
+    """
+    Return a JSON response for RESTful API health.
+    """
+    response - {'status': "OK"} # type: ignore
+    return jsonify(response)
+
+
 
 @app.route('/api/v1/stats', methods=['GET'])
 def get_stats():
@@ -20,5 +33,4 @@ def get_stats():
     }
     return jsonify(stats)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
