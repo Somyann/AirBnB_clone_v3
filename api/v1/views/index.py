@@ -4,9 +4,9 @@ from api.v1.views import app_views
 from flask import jsonify
 from models import storage
 
-
-@app_views.route("/status", methods=["GET"],  strict_slashes=False)
-def status():
+app = Flask(__name__)
+@app_views.route('/api/v1/stats', methods=["GET"],  strict_slashes=False)
+def get_stats():
     """ returns a JSON """
     data = {"status": "OK"}
     
@@ -15,8 +15,7 @@ def status():
 
     return resp
 
-
-@app_views.route("/stats", methods=["GET"], strict_slashes=False)
+@app_views.route('/api/v1/stats', methods=["GET"], strict_slashes=False)
 def stats():
     """ retrieves the number of each objects by type """
     data = {
@@ -31,4 +30,6 @@ def stats():
     resp = jsonify(data)
     resp.status_code = 200
 
-    return resp
+    return jsonify(stats)
+if __name__ == '__main__':
+    app.run(debug=True)
