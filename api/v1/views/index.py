@@ -9,8 +9,9 @@ from api.v1.views import app_views
 
 
 @app_views.route('/status')
-def status ():
-    return jsonify({"status": "OK"})
+def api_status ():
+    reaponse = ('status': OK)
+    return jsonify(response)
 
 
 @app_views.route('/stats', methods=["GET"], strict_slashes=False)
