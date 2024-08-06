@@ -14,14 +14,14 @@ def api_status():
     Return a JSON response for RESTful API health.
     """
     response = {'status': "OK"} # type: ignore
-    return jsonify(response)
+    
+
+return jsonify(response)
 
 
 @app_views.route('/stats', methods=["GET"], strict_slashes=False)
 def get_stats():
-    """
-    Endpoint that retrieves the number of each object by type.
-    """
+  
 stats = {
         'Amenity': storage.count('Amenity'),
         'City': storage.count('City'),
@@ -29,6 +29,7 @@ stats = {
         'Review': storage.count('Review'),
         'State': storage.count('State'),
         'User': storage.count('User')
-    }
+}
 
-    return jsonify(stats)
+
+return jsonify(stats)

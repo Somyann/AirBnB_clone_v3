@@ -1,8 +1,10 @@
-
-dule containing Place View """
+#!/usr/bin/python3
+"""
+dule containing Place View 
+"""
 from api.v1.views import app_views
-from flask import jsonify, abort, request
-from models import storage, storage_t
+from flask import jsonify
+from models import storage
 from models.place import Place
 
 
